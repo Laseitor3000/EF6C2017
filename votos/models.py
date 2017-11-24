@@ -45,5 +45,5 @@ class Votos(models.Model):
 el id era para poder llamar a los votos cuando los quiciera contar pero no me salio y el candidato es para saber a que candidadto le pertenece ese voto. 
     """
     def __str__(self):
-		return self.voto
+		return self.votos
     
