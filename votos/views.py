@@ -8,9 +8,9 @@ from votos.models import *
 
 
 def resultado_global(request):
-    
-    votoxcadidato = Votos.objects.all(),
-    
+
+    votoxcadidato = Votos.objects.all()
+
     """
     Generar la vista para devolver el resultado global de la elección.
     Tener en cuenta que tiene que tener:
@@ -23,13 +23,14 @@ def resultado_global(request):
     context={}
     context['distritos'] = Distrito.objects.all()
     #TODO TU CODIGO AQUI
-
+    
+    votoxcadidato = Votos.objects.all()
+    
     return render(request,'global.html',context)
 
 
 def resultado_distrital(request):
-    distrito = Distrito.objets.all()
-    padron = cantidad_votantes
+
     """
     Generar la vista para devolver el resultado distrital de la elección
     Tener en cuenta que tiene que tener:
@@ -40,6 +41,10 @@ def resultado_distrital(request):
     """
     context={}
 
-    #TODO TU CODIGO AQUI
+    distrito = Distrito.objets.all()
+    votos = Votos.objets.all().filter(id)
+    cantidad_votantes = cantidad_votantes
+    porcentaje_votantes = cantidad_votantes / votos
+    porcentaje_votos = padron / votos 
 
     return render(request,'distrital.html',context)

@@ -31,12 +31,12 @@ class Candidato(models.Model):
    el id era para poder relacionar los votos con los candidatos y el nombre para identificarlo al candidato.
     """
     def __str__(self):
-		return self.Candidato
+		return self.nombre
 
 
 class Votos(models.Model):
     id = models.AutoField(primary_key=True) 
-    
+    #votos = models.SelectField('voto a candidato ', Candidatos)
     voto = models.ForeignKey(Candidato, blank=True, on_delete =models.CASCADE)
     
     
@@ -44,5 +44,5 @@ class Votos(models.Model):
 el id era para poder llamar a los votos cuando hiciera las views pero no me salio y el voto es para saber los votos y a que candidato se voto. 
     """
     def __str__(self):
-		return self.Votos
+		return self.voto
     
