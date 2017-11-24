@@ -25,10 +25,10 @@ class Distrito(models.Model):
 class Candidato(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField('Nombre del candidato', max_length=128)
-
+    apellido = models.CharField('Nombre del candidato', max_length=128)
 
     """
-   el id era para poder relacionar los votos con los candidatos y el nombre para identificarlo al candidato.
+   el id era para poder relacionar los votos con los candidatos y el nombre yapellido para identificarlo al candidato.
     """
     def __str__(self):
 		return self.nombre
@@ -36,12 +36,13 @@ class Candidato(models.Model):
 
 class Votos(models.Model):
     id = models.AutoField(primary_key=True) 
-    #votos = models.SelectField('voto a candidato ', Candidatos)
-    voto = models.ForeignKey(Candidato, blank=True, on_delete =models.CASCADE)
+    votos = models.IntigerField(blank=True)
+    candidato = models.ForeignKey(Candidato)
+    
     
     
     """
-el id era para poder llamar a los votos cuando hiciera las views pero no me salio y el voto es para saber los votos y a que candidato se voto. 
+el id era para poder llamar a los votos cuando los quiciera contar pero no me salio y el candidato es para saber a que candidadto le pertenece ese voto. 
     """
     def __str__(self):
 		return self.voto
