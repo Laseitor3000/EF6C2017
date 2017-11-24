@@ -23,18 +23,26 @@ class Distrito(models.Model):
         return 'Distrito {}'.format(self.nombre)
 
 class Candidato(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField('Nombre del candidato', max_length=128)
+
+
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+   el id era para poder relacionar los votos con los candidatos y el nombre para identificarlo al candidato.
     """
-    pass
+    def __str__(self):
+		return self.Candidato
 
 
 class Votos(models.Model):
+    id = models.AutoField(primary_key=True) 
+    
+    voto = models.ForeignKey(Candidato, blank=True, on_delete =models.CASCADE)
+    
+    
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+el id era para poder llamar a los votos cuando hiciera las views pero no me salio y el voto es para saber los votos y a que candidato se voto. 
     """
-    pass
+    def __str__(self):
+		return self.Votos
+    

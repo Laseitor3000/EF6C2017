@@ -8,6 +8,9 @@ from votos.models import *
 
 
 def resultado_global(request):
+    
+    votoxcadidato = Votos.objects.all(),
+    
     """
     Generar la vista para devolver el resultado global de la elección.
     Tener en cuenta que tiene que tener:
