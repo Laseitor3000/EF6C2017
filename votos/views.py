@@ -28,6 +28,8 @@ def resultado_global(request):
 
 
 def resultado_distrital(request):
+    distrito = Distrito.objets.all()
+    padron = cantidad_votantes
     """
     Generar la vista para devolver el resultado distrital de la elección
     Tener en cuenta que tiene que tener:
